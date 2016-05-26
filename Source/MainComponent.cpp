@@ -13,6 +13,7 @@
 MainContentComponent::MainContentComponent()
 :button1("Click me"),
  slider1(Slider::LinearHorizontal, Slider::NoTextBox)
+
 {
     slider1.setRange(0.0, 100.0);
 
@@ -23,6 +24,8 @@ MainContentComponent::MainContentComponent()
     label1.addListener(this);
 
     label1.setEditable(true);
+
+    //slider1.setSliderStyle(Slider::LinearBar);
     slider1.setValue(100,sendNotification);
 
     addAndMakeVisible(&button1);
@@ -37,7 +40,7 @@ MainContentComponent::~MainContentComponent()
 
 void MainContentComponent::paint (Graphics& g)
 {
-    g.fillAll (Colour (0xffff1Fff));
+    g.fillAll (Colour (0xfffffFff));
 
     g.setFont (Font (16.0f));
     g.setColour (Colours::white);
@@ -63,7 +66,17 @@ void MainContentComponent::buttonClicked(Button* button){
 
 void MainContentComponent::sliderValueChanged(Slider* slider){
     if (&slider1 == slider) {
-        label1.setText(String(slider1.getValue()), sendNotification);
+        int value = slider1.getValue();
+        label1.setText(String(value), sendNotification);
+
+        if (value < 30) {
+            slider1.setColour(Slider::thumbColourId, Colour(0xff00ff00));
+        } else if (value < 70) {
+            slider1.setColour(Slider::thumbColourId, Colours::yellow);
+        } else {
+            slider1.setColour(Slider::thumbColourId, Colour(255,0,0));
+        }
+
     }
 }
 

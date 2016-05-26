@@ -47,6 +47,8 @@ private:
     TextButton button1;     // Step [1]
     NumericalLabel label1;
     Slider slider1;
+
+
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainContentComponent)
 };
