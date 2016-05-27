@@ -43,6 +43,7 @@ public:
     void sliderValueChanged(Slider*);
     void labelTextChanged(Label*);
 
+
 private:
     TextButton button1;     // Step [1]
     NumericalLabel label1;

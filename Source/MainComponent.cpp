@@ -43,8 +43,10 @@ void MainContentComponent::paint (Graphics& g)
     g.fillAll (Colour (0xfffffFff));
 
     g.setFont (Font (16.0f));
-    g.setColour (Colours::white);
+    g.setColour (Colours::blue);
 //    g.drawText ("Hello World!", getLocalBounds(), Justification::centred, true);
+
+    g.drawRoundedRectangle(5,5,getWidth()-10,getHeight()-10, 4,2);
 }
 
 void MainContentComponent::resized()
@@ -52,9 +54,9 @@ void MainContentComponent::resized()
     // This is called when the MainContentComponent is resized.
     // If you add any child components, this is where you should
     // update their positions.
-    button1.setBoundsRelative(0.05, 0.05, 0.9, 0.25);
-    slider1.setBoundsRelative(0.05, 0.65, 0.9, 0.25);
-    label1.setBoundsRelative(0.05, 0.35, 0.9, 0.25);
+    button1.setBoundsRelative(0.05, 0.15, 0.9, 0.25);
+    slider1.setBoundsRelative(0.05, 0.70, 0.9, 0.25);
+    label1.setBoundsRelative(0.05, 0.40, 0.9, 0.25);
 }
 
 void MainContentComponent::buttonClicked(Button* button){
@@ -85,3 +87,5 @@ void MainContentComponent::labelTextChanged(Label* label) {
         slider1.setValue(label1.getText().getDoubleValue(), dontSendNotification);
     }
 }
+
+

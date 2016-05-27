@@ -29,6 +29,7 @@ public:
         // This method is where you should put your application's initialisation code..
 
         mainWindow = new MainWindow (getApplicationName());
+
     }
 
     void shutdown() override
@@ -67,9 +68,10 @@ public:
         {
             setUsingNativeTitleBar (true);
             setContentOwned (new MainContentComponent(), true);
-
+            setResizable(true, true);
             centreWithSize (getWidth(), getHeight());
             setVisible (true);
+
         }
 
         void closeButtonPressed() override
